@@ -6,3 +6,7 @@ Download the identity folder, extract it to the themes folder of your Pico insta
 `$config['theme'] = 'hold';`
 
 For the content download our `index.md`, upload it in the content folder and make your changes.
+
+### Screenshot
+
+![Hold Screenshot](http://img15.hostingpics.net/pics/862093holdpreview.png)
