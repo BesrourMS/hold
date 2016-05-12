@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ site_title }} | {{ meta.job }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{{ meta.description|striptags }}" />
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="{{ site_title }}"/>
+	<meta property="og:image" content="{% if meta.img %} {{ meta.img }} {% else %} https://unsplash.it/1900/1608?image=1012 {% endif %}" />
+	<meta property="og:url" content="{{ base_url }}"/>
+	<meta property="og:site_name" content="{{ site_title }}"/>
+	<meta property="og:description" content="{{ meta.description|striptags }}"/>
+	<meta name="twitter:title" content="{{ site_title }}" />
+	<meta name="twitter:image" content="{% if meta.img %} {{ meta.img }} {% else %} https://unsplash.it/1900/1608?image=1012 {% endif %}" />
+	<meta name="twitter:url" content="{{ base_url }}" />
+	<meta name="twitter:card" content="summary" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+	
+	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700italic,700' rel='stylesheet' type='text/css'>
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{{ theme_url }}/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{{ theme_url }}/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{{ theme_url }}/css/bootstrap.css">
+
+	<link rel="stylesheet" href="{{ theme_url }}/css/style.css">
+
+	
+	<!-- Modernizr JS -->
+	<script src="{{ theme_url }}/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="{{ theme_url }}/js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+
+	<body>
+	
+	<!-- Loader -->
+	<div class="fh5co-loader"></div>
+	
+	<div id="fh5co-page" itemscope itemtype="http://schema.org/Person">
+		<header id="fh5co-header" role="banner" class="fh5co-project js-fh5co-waypoint no-border" data-colorbg="#222222" data-next="yes">
+			<div class="container">
+				<div class="fh5co-text-wrap animate-box">
+					<div class="fh5co-intro-text">
+						<h1 itemprop="name">{{ site_title }}</h1>
+						<h2 itemprop="jobTitle">{{ meta.job }}</h2>
+					</div>
+				</div>
+			</div>
+			<div class="btn-next animate-box fh5co-learn-more">
+				<a href="#" class="scroll-btn">
+					<span>See the detail</span>
+					<i class="icon-chevron-down"></i>
+				</a>
+			</div>
+		</header>
+
+		<div class="js-fh5co-waypoint fh5co-project-detail" id="fh5co-main" data-colorbg="">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12">
+						{% if meta.bio %}
+						<div class="row row-bottom-padded-sm animate-box">
+							<div class="col-md-3">
+								<h3 class="fh5co-section-heading"><span class="fh5co-number"> Bio</h3>
+							</div>
+							<div class="col-md-9">
+								{% for title,text in meta.bio %}
+								<p class="fh5co-lead">{{ title }}</p>
+								<p>{{ text }}</p>
+								{% endfor %}
+							</div>
+						</div>
+						{% endif %}
+						<div class="row row-bottom-padded-sm animate-box">
+							<div class="col-md-12">
+								<figure class="fh5co-bio-photo"><img {% if meta.img %} src="{{ meta.img }}" {% else %} src="https://unsplash.it/1900/1608?image=1012" {% endif %} class="img-responsive" alt="{{ site_title }}" itemprop="image"></figure>
+							</div>
+						</div>
+						
+						{% if meta.exp %}
+						<div class="row animate-box row-bottom-padded-sm">
+							<div class="col-md-3">
+								<h3 class="fh5co-section-heading"><span class="fh5co-number"> Experience</h3>
+							</div>
+							<div class="col-md-9">
+								{% for title,text in meta.exp %}
+								<p class="fh5co-lead">{{ title }}</p>
+								<p>{{ text }}</p>
+								{% endfor %}
+							</div>
+						</div>	
+						{% endif %}
+						{% if meta.social %}
+						<div class="row animate-box row-bottom-padded-sm">
+							<div class="col-md-3">
+								<h3 class="fh5co-section-heading"><span class="fh5co-number"> Connect</h3>
+							</div>
+							<div class="col-md-9">
+								<ul class="fh5co-social fh5co-stack">
+									{% for link,icon in meta.social %}
+									<li>
+										<a href="{{ link }}"><i class="icon-{{ icon }}"></i> <span class="cap">{{ icon }}</span></a>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						{% endif %}
+						{% if meta.lat %}
+						<div class="row animate-box">
+							<div class="col-md-3">
+								<h3 class="fh5co-section-heading"><span class="fh5co-number"> My Location</h3>
+							</div>
+							<div class="col-md-12">
+								<div id="fh5co-map"></div>
+							</div>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="fh5co-footer" class="js-fh5co-waypoint">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<p><small>&copy; 2016 {{ site_title }}. All Rights Reserved. <br> Created by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> - Developed by: <a href="http://besrourms.github.io" target="_blank">Mohamed Safouan Besrour</a> </small> <br>Powered by <a href="http://picocms.org/" target="_blank">Pico CMS</a></p>
+						<ul class="fh5co-social">
+							{% for link,icon in meta.social %}
+							<li>
+								<a itemprop="sameAs" href="{{ link }}"><i class="icon-{{ icon }}"></i></a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+	</div>
+	<!-- jQuery -->
+	<script src="{{ theme_url }}/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script defer src="{{ theme_url }}/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script defer src="{{ theme_url }}/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script defer src="{{ theme_url }}/js/jquery.waypoints.min.js"></script>
+	<!-- Viewport Units Buggyfill -->
+	<script defer src="{{ theme_url }}/js/viewport-units-buggyfill.js"></script>
+	<!-- Googgle Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA"></script>
+	{% if meta.lat %}
+	<script>
+		var google;
+
+		function initialize() {
+			var myLatlng = new google.maps.LatLng({{ meta.lat }},{{ meta.lng }});
+			var mapOptions = {
+				zoom: 7,
+				// The latitude and longitude to center the map (always required)
+				center: myLatlng,
+				// How you would like to style the map. 
+				scrollwheel: false,
+				styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
+			  }
+			  var map = new google.maps.Map(document.getElementById('fh5co-map'), mapOptions),
+			  contentString = '<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">{{ site_title }}<br><span itemprop="streetAddress">{{ meta.streetaddress }}</span><br><span itemprop="addressLocality">{{ meta.addresslocality }}</span> <span itemprop="addressRegion">{{ meta.addressregion }}</span> <span itemprop="postalCode">{{ meta.postalcode }}</span><br><span itemprop="addressCountry">{{ meta.addresscountry }}</span></address>',
+			  infowindow = new google.maps.InfoWindow({
+				content: contentString
+			  });
+
+			  var marker = new google.maps.Marker({
+				  position: myLatlng,
+				  map: map,
+				  icon: '{{ theme_url }}/images/loc.png',
+				  title: '{{ site_title }}'
+			  });
+			  google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map,marker);
+			});
+
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	{% endif %}
+	<!-- Main JS  -->
+	<script src="{{ theme_url }}/js/main.js"></script>
+	</body>
+</html>
