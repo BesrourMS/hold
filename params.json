@@ -1,0 +1,6 @@
+{
+  "name": "Hold",
+  "tagline": "Hold is a free Pico CMS Theme perfect for freelancers, creatives, web designer and developers alike to showcase their experience in an elegant way.",
+  "body": "# Hold\r\nHold is a free Pico CMS Theme perfect for freelancers, creatives, web designer and developers alike to showcase their experience in an elegant way.\r\n\r\nDownload the identity folder, extract it to the themes folder of your Pico installation, and change the following setting within your config.php:\r\n\r\n`$config['theme'] = 'hold';`\r\n\r\nFor the content download our `index.md`, upload it in the content folder and make your changes.\r\n\r\n### Meta\r\nThere are two obligatory Meta : Job & Description for SEO reasons but for the others you can choose what you want to put on your webpage.\r\n\r\nWe use [Font Awesome](http://fontawesome.io/icons/) for social icons\r\nYou can add as many social icons as you want using the follow syntax:\r\n\r\n```\r\nSocial:\r\n  http://tn.linkedin.com/in/MohamedSafouanBesrour: linkedin\r\n  https://github.com/BesrourMS: github\r\n  url: icon\r\n```\r\n\r\n### Screenshot\r\n\r\n![Hold Screenshot](http://img15.hostingpics.net/pics/862093holdpreview.png)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
