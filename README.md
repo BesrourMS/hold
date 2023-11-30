@@ -19,9 +19,4 @@ Social:
   https://github.com/BesrourMS: github
   url: icon
 ```
-
-### Screenshot
-
-![Hold Screenshot](http://img15.hostingpics.net/pics/862093holdpreview.png)
-
 ### Demo : [link](https://demos.freehtml5.co/hold/)
